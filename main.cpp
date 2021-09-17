@@ -10,6 +10,7 @@ Alumnos:
 */
 
 #include <iostream>
+#include <string>
 
 int main(){
 	std::cout << "\n\n*************************************************************\n********************TRES EN RAYA*****************************\n*************************************************************\n\n\n";
@@ -26,20 +27,35 @@ int main(){
 	std::cout <<"---+---+---"<<std::endl;
 	std::cout <<" "<<'7'<<" "<<"|"<<" "<<'8'<<" "<<"|"<<" "<<'9'<<" "<<std::endl;
 	std::cout <<"---+---+---"<<std::endl;
-
-	std::cout << "\nIgrese el simbolo que usara el jugador 1: ";
-	char simbolo_player_1;
-	std::cin >> simbolo_player_1;
-
 	
-	// 
-
-	char simbolo_player_2;
-
-	std::cout << "\nIgrese el simbolo que usara el jugador 2: ";
-	std::cin >> simbolo_player_2;
-
+	std::string player1;
+	std::string player2;
+	
+	std::cout << "Ingrese su nombre: ";
+	std::cin>>player1;
+	std::cout << "Ingrese su nombre: ";
+	std::cin>>player1;
+	
+	
 	while(true){
+	
+		std::cout << "\nIgrese el simbolo que usara " << player1 << " (O/X):";
+		char simbolo_player_1;
+		std::cin >> simbolo_player_1;
+	
+		if(simbolo_player_1 == O){
+			simbolo_player_2 = X;
+			break;
+		} else if(simbolo_player_1 == X){
+			simbolo_player_2 = O;
+			break;
+		} else{
+			std::cout << "ERROR ...Los simbolos solo puede ser O / X\n"
+		}
+		
+	}
+
+	/*while(true){
 		
 		if (simbolo_player_1 == simbolo_player_2){
 			std::cout << "\nALERTA ... Los simbolos no pueden ser iguales";
@@ -48,7 +64,7 @@ int main(){
 		} else if (simbolo_player_1 != simbolo_player_2){
 			break;
 		}
-	}
+	}*/
 
 	std::cout << "\n\n**************************************************************\n************************BUENO EMPEZEMO************************\n**************************************************************\n\n\n";
 
@@ -84,6 +100,7 @@ int main(){
 			std::cout<<"EMPATE";
 			break;
 		}
+		
 		contador = contador + 1;
 		
 		while(true){
