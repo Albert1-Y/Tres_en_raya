@@ -1,5 +1,14 @@
-// NOMBRES
-//nombres
+/*
+Curso de Ciencia de la Computación I - CCOMP2 - 1
+
+3 en Raya - Primera Parte
+
+Alumnos:
+-Albert Yerem Caceres Marca 
+-Jhon Berly Taipe Alccaccahua
+-Brian Jesse Bermudez Navarro
+
+*/
 
 #include <iostream>
 
