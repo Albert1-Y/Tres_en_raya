@@ -7,7 +7,6 @@ Alumnos:
 -Albert Yerem Caceres Marca 
 -Jhon Berly Taipe Alccaccahua
 -Brian Jesse Bermudez Navarro
-
 */
 
 #include <iostream>
