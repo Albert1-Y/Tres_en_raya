@@ -1,5 +1,4 @@
-// NOMBRES
-//nombres
+// Albert Yerem Caceres Marca
 
 #include <iostream>
 
