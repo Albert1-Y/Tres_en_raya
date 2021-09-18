@@ -1,5 +1,5 @@
 /*
-Curso de Ciencia de la ComputaciÃ³n I - CCOMP2 - 1
+Curso de Ciencia de la Computacion I - CCOMP2 - 1
 
 3 en Raya - Primera Parte
 
@@ -10,7 +10,7 @@ Alumnos:
 */
 
 #include <iostream>
-//#include <string>
+#include <string>
 
 int main(){
 	std::cout << "\n\n*************************************************************\n********************TRES EN RAYA*****************************\n*************************************************************\n\n\n";
@@ -31,18 +31,18 @@ int main(){
 	std::string player1;
 	std::string player2;
 	
-  //Ingresamos los nombres de los usuarios y los guardamos en las variables
+	//Ingresamos los nombres de los usuarios y los guardamos en las variables
 
 	std::cout << "\nIngrese su nombre: ";
 	std::cin>>player1;
 	std::cout << "\nIngrese su nombre: ";
 	std::cin>>player2;
 	
-  // Definimos 2 variables del tipo caracter para los 2 simbolos que se usaran en el tablero
+	// Definimos 2 variables del tipo caracter para los 2 simbolos que se usaran en el tablero
 	char simbolo_player_1;
 	char simbolo_player_2;
 
-  // Usamos un bucle While para preguntar que simbolo usara el primer jugador, y segun ello el segundo jugador se le asignara el otro simbolo, (Los simbolos necesariamente tienen que ser en mayusculas 'X' o 'O')
+	// Usamos un bucle While para preguntar que simbolo usara el primer jugador, y segun ello el segundo jugador se le asignara el otro simbolo, (Los simbolos necesariamente tienen que ser en mayusculas 'X' o 'O')
 	while (true){
 	
 		std::cout << "\nIgrese el simbolo que usara " << player1 << " (O/X):";
@@ -61,10 +61,10 @@ int main(){
 		
 	}
 
-  // Mensaje de inicio del juego
+	// Mensaje de inicio del juego
 	std::cout << "\n\n**************************************************************\n************************BUENO EMPEZEMO************************\n**************************************************************\n\n\n";
 
-  // Se muestran los simbolos elegidos por cada jugador
+	// Se muestran los simbolos elegidos por cada jugador
 	std::cout << player1 << ":\t" << simbolo_player_1 << std::endl;
 	std::cout << player2 << ":\t" << simbolo_player_2 << std::endl << std::endl;;
 
@@ -74,6 +74,8 @@ int main(){
 
 	int variable_de_pr, variable_de_pr_2;
 
+	// 
+	
 	int ascii_1, ascii_2;
 	ascii_1= simbolo_player_1;
 	ascii_2= simbolo_player_2;
@@ -81,7 +83,7 @@ int main(){
 
 	while (true){
 
-    // Dibujamos el tablero 
+		// Dibujamos el tablero 
 		std::cout << "\n==============================================================\n\n";
 		std::cout <<"---+---+---"<<std::endl;
 		std::cout <<" "<<blok_1<<" "<<"|"<<" "<<blok_2<<" "<<"|"<<" "<<blok_3<<" "<<std::endl;
@@ -91,18 +93,13 @@ int main(){
 		std::cout <<" "<<blok_7<<" "<<"|"<<" "<<blok_8<<" "<<"|"<<" "<<blok_9<<" "<<std::endl;
 		std::cout <<"---+---+---"<<std::endl<<std::endl;
 
-    //Condicional que verifica si los simbolos en 3 casillas son iguales,  para declarar si el jugador 1 es ganador y termina el programa
+		//Condiciones de victoria o empate
 		if ((blok_1 == simbolo_player_1 && blok_2 == simbolo_player_1 && blok_3 == simbolo_player_1)||(blok_4 == simbolo_player_1 && blok_5== simbolo_player_1 && blok_6== simbolo_player_1)||(blok_7== simbolo_player_1 && blok_8== simbolo_player_1 && blok_9== simbolo_player_1)||(blok_1== simbolo_player_1 && blok_5== simbolo_player_1 && blok_9== simbolo_player_1)||(blok_3== simbolo_player_1 && blok_5== simbolo_player_1 && blok_7== simbolo_player_1)||(blok_1== simbolo_player_1 && blok_4== simbolo_player_1 && blok_7== simbolo_player_1)||(blok_2==simbolo_player_1 && blok_5== simbolo_player_1 && blok_8== simbolo_player_1)||(blok_3== simbolo_player_1 && blok_6== simbolo_player_1 && blok_9== simbolo_player_1)){
 			std::cout<<"\n" << player1 << " es el ganador\n\n";
 			break;
-		}
-    //Condicional que verifica si los simbolos en 3 casillas son iguales,  para declarar si el jugador 2 es ganador y termina el programa
-
-		else if ((blok_1== simbolo_player_2 && blok_2== simbolo_player_2 && blok_3== simbolo_player_2)||(blok_4== simbolo_player_2 && blok_5== simbolo_player_2 && blok_6== simbolo_player_2)||(blok_7== simbolo_player_2 && blok_8== simbolo_player_2 && blok_9== simbolo_player_2)||(blok_1== simbolo_player_2 && blok_5== simbolo_player_2 && blok_9== simbolo_player_2)||(blok_3== simbolo_player_2 && blok_5== simbolo_player_2 && blok_7== simbolo_player_2)||(blok_1== simbolo_player_2 && blok_4== simbolo_player_2 && blok_7== simbolo_player_2)||(blok_2== simbolo_player_2 && blok_5== simbolo_player_2 && blok_8== simbolo_player_2)||(blok_3== simbolo_player_2 && blok_6== simbolo_player_2 && blok_9== simbolo_player_2)){
+		} else if ((blok_1== simbolo_player_2 && blok_2== simbolo_player_2 && blok_3== simbolo_player_2)||(blok_4== simbolo_player_2 && blok_5== simbolo_player_2 && blok_6== simbolo_player_2)||(blok_7== simbolo_player_2 && blok_8== simbolo_player_2 && blok_9== simbolo_player_2)||(blok_1== simbolo_player_2 && blok_5== simbolo_player_2 && blok_9== simbolo_player_2)||(blok_3== simbolo_player_2 && blok_5== simbolo_player_2 && blok_7== simbolo_player_2)||(blok_1== simbolo_player_2 && blok_4== simbolo_player_2 && blok_7== simbolo_player_2)||(blok_2== simbolo_player_2 && blok_5== simbolo_player_2 && blok_8== simbolo_player_2)||(blok_3== simbolo_player_2 && blok_6== simbolo_player_2 && blok_9== simbolo_player_2)){
 			std::cout<<"\n" << player2 << " es el ganador\n\n";
 			break;
-    
-    //Condicional que verifica si el numero de movimientos es 9, entonces declara el juego en empate
 		} else if(contador == 9){
 			std::cout<<"\nEMPATE\n\n";
 			break;
@@ -110,7 +107,7 @@ int main(){
 		
 		contador = contador + 1;
 		
-    // Se verifica la variable de control, si es igual a 0 se pedira que el jugador 1 seleccione la posicion para su simbolo
+		// Se verifica la variable de control, si es igual a 0 se pedira que el jugador 1 seleccione la posicion para su simbolo
 
 		while(true){
 			
@@ -118,16 +115,16 @@ int main(){
 				std::cout << "Ingrese el numero de la posicion que desea  (Juagador N1): ";
 				std::cin >> variable_de_pr;
 
-        // si la posicion ingresada es un numero o letra diferente del 1 al 9
-        // entonces nos da error para que se ingrese un numero del 1 al 9
+				// si la posicion ingresada es un numero o letra diferente del 1 al 9
+				// entonces nos da error para que se ingrese un numero del 1 al 9
 
 				if ((variable_de_pr == ascii_1) || (variable_de_pr == ascii_2) ){
 					std::cout<<"ERROR ... Deberia ser un numero del 1 al 9 y no estar ocupada por otro\n";
 					continue;
-
-
-        // Se valida si el caracter que ingreso el jugador 1 es igual al numero de bloque, 
-        // entonces se coloca en el bloque elegido el simbolo del jugador 1.
+					
+					
+				// Se valida si el caracter que ingreso el jugador 1 es igual al numero de bloque, 
+				// entonces se coloca en el bloque elegido el simbolo del jugador 1.
 				} else if (variable_de_pr == blok_1_2){
 					blok_1 = simbolo_player_1;
 					blok_1_2 = simbolo_player_1;
@@ -179,21 +176,21 @@ int main(){
 
 
 
-      // Se verifica la variable de control, si es igual a 1 se pedira que el jugador 2 seleccione la posicion para su simbolo
+			// Se verifica la variable de control, si es igual a 1 se pedira que el jugador 2 seleccione la posicion para su simbolo
 
 			}else if(n==1){
 				std::cout << "Ingrese el numero de la posicion que desea  (Juagador N2): ";
 				std::cin >> variable_de_pr_2;
 
 
-        // si la posicion ingresada es un numero o letra diferente del 1 al 9
-        // entonces nos da error para que se ingrese un numero del 1 al 9
+				// si la posicion ingresada es un numero o letra diferente del 1 al 9
+				// entonces nos da error para que se ingrese un numero del 1 al 9
 				if ((variable_de_pr_2 == ascii_1)||(variable_de_pr_2== ascii_2)){
 					std::cout<<"ERROR ... Deberia ser un numero del 1 al 9 y no estar ocupada por otro\n";
 					continue;
         
-        // Se valida si el caracter que ingreso el jugador 2 es igual al numero de bloque, 
-        // entonces se coloca en el bloque elegido el simbolo del jugador 2.
+				// Se valida si el caracter que ingreso el jugador 2 es igual al numero de bloque, 
+				// entonces se coloca en el bloque elegido el simbolo del jugador 2.
 
 				} else if (variable_de_pr_2 == blok_1_2){		
 					blok_1 = simbolo_player_2;
@@ -250,4 +247,3 @@ int main(){
 
 	return 0;
 }
-
