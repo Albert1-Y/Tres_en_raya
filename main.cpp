@@ -71,7 +71,7 @@ int main(){
 
 	// Se muestran los simbolos elegidos por cada jugador
 	std::cout << player1 << ":\t" << simbolo_player_1 << std::endl;
-	std::cout << player2 << ":\t" << simbolo_player_2 << std::endl << std::endl;;
+	std::cout << player2 << ":\t" << simbolo_player_2 << std::endl << std::endl;
 
 
 	// variable varias
@@ -88,7 +88,7 @@ int main(){
 
 	while (true){
 
-		// Dibujamos el tablero 
+		// Dibujamos el tablero nuevamente
 		std::cout << "\n==============================================================\n\n";
 		std::cout <<"---+---+---"<<std::endl;
 		std::cout <<" "<<blok_1<<" "<<"|"<<" "<<blok_2<<" "<<"|"<<" "<<blok_3<<" "<<std::endl;
@@ -112,11 +112,11 @@ int main(){
 		
 		contador = contador + 1;
 		
-		// Se verifica la variable de control, si es igual a 0 se pedira que el jugador 1 seleccione la posicion para su simbolo
 
 		while(true){
-			
-			if (v_control ==0){
+
+			// Se verifica la variable de control, si es igual a 0 se pedira que el jugador 1 seleccione la posicion para su simbolo
+			if (v_control == 0){
 				std::cout << "Ingrese el numero de la posicion que desea (" << player1 << "): ";
 				std::cin >> variable_de_pr;
 
@@ -127,7 +127,7 @@ int main(){
 					std::cout<<"ERROR ... Deberia ser un numero del 1 al 9 y no estar ocupada por otro\n";
 					continue;
 						
-				// Se valida si el caracter que ingreso el jugador 1 es igual al numero de bloque, 
+				// Se valida si el numero que ingreso el jugador 1 es igual al numero de bloque, 
 				// entonces se coloca en el bloque elegido el simbolo del jugador 1.
 				} else if (variable_de_pr == blok_1_2){
 					blok_1 = simbolo_player_1;
@@ -177,11 +177,11 @@ int main(){
 				} else {
 					std::cout << "ERROR ... Deberia ser un numero del 1 al 9 y no estar ocupada por otro\n";
 				}
-
+			}
 
 			// Se verifica la variable de control, si es igual a 1 se pedira que el jugador 2 seleccione la posicion para su simbolo
 
-			}else if(v_control==1){
+			else if(v_control == 1){
 				std::cout << "Ingrese el numero de la posicion que desea (" << player2 << "): ";
 				std::cin >> variable_de_pr_2;
 
@@ -192,7 +192,7 @@ int main(){
 					std::cout<<"ERROR ... Deberia ser un numero del 1 al 9 y no estar ocupada por otro\n";
 					continue;
         
-				// Se valida si el caracter que ingreso el jugador 2 es igual al numero de bloque, 
+				// Se valida si el numero que ingreso el jugador 2 es igual al numero de bloque, 
 				// entonces se coloca en el bloque elegido el simbolo del jugador 2.
 
 				} else if (variable_de_pr_2 == blok_1_2){		
