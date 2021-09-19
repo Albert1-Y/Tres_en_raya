@@ -117,7 +117,7 @@ int main(){
 		while(true){
 			
 			if (v_control ==0){
-				std::cout << "Ingrese el numero de la posicion que desea  (Juagador N1): ";
+				std::cout << "Ingrese el numero de la posicion que desea (" << player1 << "): ";
 				std::cin >> variable_de_pr;
 
 				// si la posicion ingresada es un numero o letra diferente del 1 al 9
@@ -182,7 +182,7 @@ int main(){
 			// Se verifica la variable de control, si es igual a 1 se pedira que el jugador 2 seleccione la posicion para su simbolo
 
 			}else if(v_control==1){
-				std::cout << "Ingrese el numero de la posicion que desea  (Juagador N2): ";
+				std::cout << "Ingrese el numero de la posicion que desea (" << player2 << "): ";
 				std::cin >> variable_de_pr_2;
 
 
