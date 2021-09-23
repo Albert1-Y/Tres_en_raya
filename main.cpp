@@ -1,16 +1,17 @@
 /*
-Curso de Ciencia de la Computacion I - CCOMP2 - 1
+Curso de Ciencia de la Computación I - CCOMP2 - 1
 
-3 en Raya - Primera Parte
+3 en Raya - Segunda Parte (Bot)
 
 Alumnos:
--Albert Yerem Caceres Marca 
+-Albert Yerem Cáceres Marca 
 -Jhon Berly Taipe Alccaccahua
 -Brian Jesse Bermudez Navarro
 */
 
 #include <iostream>
-#include <string>
+#include <stdlib.h>
+#include <ctime>
 
 int main(){
 	std::cout << "\n\n*************************************************************\n********************TRES EN RAYA*****************************\n*************************************************************\n\n\n";
@@ -29,17 +30,58 @@ int main(){
 	std::cout <<"---+---+---"<<std::endl;
 	std::cout <<" "<<'7'<<" "<<"|"<<" "<<'8'<<" "<<"|"<<" "<<'9'<<" "<<std::endl;
 	std::cout <<"---+---+---"<<std::endl;
-	
-	
+
+	char modo;
+
+	while(true){
+		std::cout << "Que modo quieres jugar:\n";
+		std::cout << "\t- Multijugador ............................ (M)\n";
+		std::cout << "\t- Contra la maquina ....................... (B)\n\n";
+		std::cout << "¿Que modo eliges(M/B)?:\t";
+		std::cin >> modo;
+
+		if(modo == 'M'){
+			break;
+		} else if (modo == 'B'){
+			while(true){
+				std::cout << "\t\t- Principante ..................... (P)\n";
+				std::cout << "\t\t- Avanzado ........................ (A)\n";
+				std::cout << "\t\t- Dificil ......................... (D)\n\n";
+				std::cout << "¿Que modo eliges(P/A/D)?:\t";
+				std::cin >> modo;
+
+				if(modo == 'P'){
+					break;
+				} else if(modo == 'A'){
+					break;
+				} else if(modo == 'D'){
+					break;
+				} else{
+					std::cout << "ERROR ...Los modos solo puede ser M / P / A / D (En mayusculas pls)\n";
+				}
+			}
+			break;
+		} else{
+			std::cout << "ERROR ...Los modos solo puede ser M / P / A / D (En mayusculas pls)\n";
+		}
+	}
 	
 	//Ingresamos los nombres de los usuarios y los guardamos en las variables
 	std::string player1;
 	std::string player2;
 
-	std::cout << "\nIngrese su nombre: ";
-	std::cin>>player1;
-	std::cout << "\nIngrese su nombre: ";
-	std::cin>>player2;
+	if(modo == 'M'){
+		std::cout << "\nIngrese su nombre: ";
+		std::cin>>player1;
+		std::cout << "\nIngrese su nombre: ";
+		std::cin>>player2;
+	} else if(modo == 'P' || modo == 'A' || modo == 'D'){
+		std::cout << "\nIngrese su nombre: ";
+		std::cin>>player1;
+		player2="GROVY(BOT)";
+		std::cout << "El nombre del bot es: " << player2 << std::endl;
+	}
+
 	
 	// Definimos 2 variables del tipo caracter para los 2 simbolos que se usaran en el tablero
 	char simbolo_player_1;
@@ -75,8 +117,13 @@ int main(){
 
 
 	// variable varias
-	int v_control = 0; 
-	int contador = 0; 
+	int v_control = 1; 
+	
+
+	srand(time(0));
+	v_control = 0 + rand() % (2);
+
+	int contador = 0;
 
 	int variable_de_pr, variable_de_pr_2;
 
@@ -182,9 +229,189 @@ int main(){
 			// Se verifica la variable de control, si es igual a 1 se pedira que el jugador 2 seleccione la posicion para su simbolo
 
 			else if(v_control == 1){
-				std::cout << "Ingrese el numero de la posicion que desea (" << player2 << "): ";
-				std::cin >> variable_de_pr_2;
 
+				if(modo == 'M'){
+					std::cout << "Ingrese el numero de la posicion que desea (" << player2 << "): ";
+					std::cin >> variable_de_pr_2;
+				} else if(modo == 'P'){
+					srand(time(0));
+					variable_de_pr_2= 1 + rand() % (9);
+				} else if(modo == 'A'){
+					if(blok_1 == ' ' && ((blok_2 == simbolo_player_1 && blok_3 == simbolo_player_1) || (blok_7 == simbolo_player_1 && blok_4 == simbolo_player_1) || (blok_5 == simbolo_player_1 && blok_9 == simbolo_player_1))){
+						blok_1 = simbolo_player_2;
+						blok_1_2 = simbolo_player_2;
+						v_control = 0;
+						break;
+					} else if(blok_2 == ' ' && ((blok_1 == simbolo_player_1 && blok_3 == simbolo_player_1) || (blok_5 == simbolo_player_1 && blok_8 == simbolo_player_1))){
+						blok_2 = simbolo_player_2;
+						blok_2_2 = simbolo_player_2;
+						v_control = 0;
+						break;
+					} else if(blok_3 == ' ' && ((blok_1 == simbolo_player_1 && blok_2 == simbolo_player_1) || (blok_7 == simbolo_player_1 && blok_5 == simbolo_player_1) || (blok_6 == simbolo_player_1 && blok_9 == simbolo_player_1))){
+						blok_3 = simbolo_player_2;
+						blok_3_2 = simbolo_player_2;
+						v_control = 0;
+						break;
+					} else if(blok_4 == ' ' && ((blok_1 == simbolo_player_1 && blok_7 == simbolo_player_1) || (blok_5 == simbolo_player_1 && blok_6 == simbolo_player_1))){
+						blok_4 = simbolo_player_2;
+						blok_4_2 = simbolo_player_2;
+						v_control = 0;
+						break;
+					} else if(blok_5 == ' ' && ((blok_1 == simbolo_player_1 && blok_9 == simbolo_player_1) || (blok_7 == simbolo_player_1 && blok_3 == simbolo_player_1) || (blok_2 == simbolo_player_1 && blok_8 == simbolo_player_1) || (blok_4 == simbolo_player_1 && blok_6 == simbolo_player_1))){
+						blok_5 = simbolo_player_2;
+						blok_5_2 = simbolo_player_2;
+						v_control = 0;
+						break;
+					} else if(blok_6 == ' ' && ((blok_3 == simbolo_player_1 && blok_9 == simbolo_player_1) || (blok_4 == simbolo_player_1 && blok_5 == simbolo_player_1))){
+						blok_6 = simbolo_player_2;
+						blok_6_2 = simbolo_player_2;
+						v_control = 0;
+						break;
+					} else if(blok_7 == ' ' && ((blok_1 == simbolo_player_1 && blok_4 == simbolo_player_1) || (blok_3 == simbolo_player_1 && blok_5 == simbolo_player_1) || (blok_8 == simbolo_player_1 && blok_9 == simbolo_player_1))){
+						blok_7 = simbolo_player_2;
+						blok_7_2 = simbolo_player_2;
+						v_control = 0;
+						break;
+					} else if(blok_8 == ' ' && ((blok_2 == simbolo_player_1 && blok_5 == simbolo_player_1) || (blok_7 == simbolo_player_1 && blok_9 == simbolo_player_1))){
+						blok_8 = simbolo_player_2;
+						blok_8_2 = simbolo_player_2;
+						v_control = 0;
+						break;
+					} else if(blok_9 == ' ' && ((blok_1 == simbolo_player_1 && blok_5 == simbolo_player_1) || (blok_3 == simbolo_player_1 && blok_6 == simbolo_player_1) || (blok_7 == simbolo_player_1 && blok_8 == simbolo_player_1))){
+						blok_9 = simbolo_player_2;
+						blok_9_2 = simbolo_player_2;
+						v_control = 0;
+						break;
+					} else {
+						srand(time(0));
+						variable_de_pr_2= 1 + rand() % (9);
+					}
+				} else if(modo == 'D'){
+					if(blok_1 == ' ' && ((blok_2 == simbolo_player_2 && blok_3 == simbolo_player_2) || (blok_7 == simbolo_player_2 && blok_4 == simbolo_player_2) || (blok_5 == simbolo_player_2 && blok_9 == simbolo_player_2))){
+						blok_1 = simbolo_player_2;
+						blok_1_2 = simbolo_player_2;
+						v_control = 0;
+						break;
+					} else if(blok_2 == ' ' && ((blok_1 == simbolo_player_2 && blok_3 == simbolo_player_2) || (blok_5 == simbolo_player_2 && blok_8 == simbolo_player_2))){
+						blok_2 = simbolo_player_2;
+						blok_2_2 = simbolo_player_2;
+						v_control = 0;
+						break;
+					} else if(blok_3 == ' ' && ((blok_1 == simbolo_player_2 && blok_2 == simbolo_player_2) || (blok_7 == simbolo_player_2 && blok_5 == simbolo_player_2) || (blok_6 == simbolo_player_2 && blok_9 == simbolo_player_2))){
+						blok_3 = simbolo_player_2;
+						blok_3_2 = simbolo_player_2;
+						v_control = 0;
+						break;
+					} else if(blok_4 == ' ' && ((blok_1 == simbolo_player_2 && blok_7 == simbolo_player_2) || (blok_5 == simbolo_player_2 && blok_6 == simbolo_player_2))){
+						blok_4 = simbolo_player_2;
+						blok_4_2 = simbolo_player_2;
+						v_control = 0;
+						break;
+					} else if(blok_5 == ' ' && ((blok_1 == simbolo_player_2 && blok_9 == simbolo_player_2) || (blok_7 == simbolo_player_2 && blok_3 == simbolo_player_2) || (blok_2 == simbolo_player_2 && blok_8 == simbolo_player_2) || (blok_4 == simbolo_player_2 && blok_6 == simbolo_player_2))){
+						blok_5 = simbolo_player_2;
+						blok_5_2 = simbolo_player_2;
+						v_control = 0;
+						break;
+					} else if(blok_6 == ' ' && ((blok_3 == simbolo_player_2 && blok_9 == simbolo_player_2) || (blok_4 == simbolo_player_2 && blok_5 == simbolo_player_2))){
+						blok_6 = simbolo_player_2;
+						blok_6_2 = simbolo_player_2;
+						v_control = 0;
+						break;
+					} else if(blok_7 == ' ' && ((blok_1 == simbolo_player_2 && blok_4 == simbolo_player_2) || (blok_3 == simbolo_player_2 && blok_5 == simbolo_player_2) || (blok_8 == simbolo_player_2 && blok_9 == simbolo_player_2))){
+						blok_7 = simbolo_player_2;
+						blok_7_2 = simbolo_player_2;
+						v_control = 0;
+						break;
+					} else if(blok_8 == ' ' && ((blok_2 == simbolo_player_2 && blok_5 == simbolo_player_2) || (blok_7 == simbolo_player_2 && blok_9 == simbolo_player_2))){
+						blok_8 = simbolo_player_2;
+						blok_8_2 = simbolo_player_2;
+						v_control = 0;
+						break;
+					} else if(blok_9 == ' ' && ((blok_1 == simbolo_player_2 && blok_5 == simbolo_player_2) || (blok_3 == simbolo_player_2 && blok_6 == simbolo_player_2) || (blok_7 == simbolo_player_2 && blok_8 == simbolo_player_2))){
+						blok_9 = simbolo_player_2;
+						blok_9_2 = simbolo_player_2;
+						v_control = 0;
+						break;
+					} else if(blok_1 == ' ' && ((blok_2 == simbolo_player_1 && blok_3 == simbolo_player_1) || (blok_7 == simbolo_player_1 && blok_4 == simbolo_player_1) || (blok_5 == simbolo_player_1 && blok_9 == simbolo_player_1))){
+						blok_1 = simbolo_player_2;
+						blok_1_2 = simbolo_player_2;
+						v_control = 0;
+						break;
+					} else if(blok_2 == ' ' && ((blok_1 == simbolo_player_1 && blok_3 == simbolo_player_1) || (blok_5 == simbolo_player_1 && blok_8 == simbolo_player_1))){
+						blok_2 = simbolo_player_2;
+						blok_2_2 = simbolo_player_2;
+						v_control = 0;
+						break;
+					} else if(blok_3 == ' ' && ((blok_1 == simbolo_player_1 && blok_2 == simbolo_player_1) || (blok_7 == simbolo_player_1 && blok_5 == simbolo_player_1) || (blok_6 == simbolo_player_1 && blok_9 == simbolo_player_1))){
+						blok_3 = simbolo_player_2;
+						blok_3_2 = simbolo_player_2;
+						v_control = 0;
+						break;
+					} else if(blok_4 == ' ' && ((blok_1 == simbolo_player_1 && blok_7 == simbolo_player_1) || (blok_5 == simbolo_player_1 && blok_6 == simbolo_player_1))){
+						blok_4 = simbolo_player_2;
+						blok_4_2 = simbolo_player_2;
+						v_control = 0;
+						break;
+					} else if(blok_5 == ' ' && ((blok_1 == simbolo_player_1 && blok_9 == simbolo_player_1) || (blok_7 == simbolo_player_1 && blok_3 == simbolo_player_1) || (blok_2 == simbolo_player_1 && blok_8 == simbolo_player_1) || (blok_4 == simbolo_player_1 && blok_6 == simbolo_player_1))){
+						blok_5 = simbolo_player_2;
+						blok_5_2 = simbolo_player_2;
+						v_control = 0;
+						break;
+					} else if(blok_6 == ' ' && ((blok_3 == simbolo_player_1 && blok_9 == simbolo_player_1) || (blok_4 == simbolo_player_1 && blok_5 == simbolo_player_1))){
+						blok_6 = simbolo_player_2;
+						blok_6_2 = simbolo_player_2;
+						v_control = 0;
+						break;
+					} else if(blok_7 == ' ' && ((blok_1 == simbolo_player_1 && blok_4 == simbolo_player_1) || (blok_3 == simbolo_player_1 && blok_5 == simbolo_player_1) || (blok_8 == simbolo_player_1 && blok_9 == simbolo_player_1))){
+						blok_7 = simbolo_player_2;
+						blok_7_2 = simbolo_player_2;
+						v_control = 0;
+						break;
+					} else if(blok_8 == ' ' && ((blok_2 == simbolo_player_1 && blok_5 == simbolo_player_1) || (blok_7 == simbolo_player_1 && blok_9 == simbolo_player_1))){
+						blok_8 = simbolo_player_2;
+						blok_8_2 = simbolo_player_2;
+						v_control = 0;
+						break;
+					} else if(blok_9 == ' ' && ((blok_1 == simbolo_player_1 && blok_5 == simbolo_player_1) || (blok_3 == simbolo_player_1 && blok_6 == simbolo_player_1) || (blok_7 == simbolo_player_1 && blok_8 == simbolo_player_1))){
+						blok_9 = simbolo_player_2;
+						blok_9_2 = simbolo_player_2;
+						v_control = 0;
+						break;
+					} else {
+						if(blok_5 == ' '){
+							blok_5 = simbolo_player_2;
+							blok_5_2 = simbolo_player_2;
+							v_control = 0;
+							break;
+						} else if(blok_8 == ' '){
+							blok_8 = simbolo_player_2;
+							blok_8_2 = simbolo_player_2;
+							v_control = 0;
+							break;}
+						else if(blok_2 == ' '){
+							blok_2 = simbolo_player_2;
+							blok_2_2 = simbolo_player_2;
+							v_control = 0;
+							break;
+						} 
+						 else if(blok_3 == ' '){
+							blok_3 = simbolo_player_2;
+							blok_3_2 = simbolo_player_2;
+							v_control = 0;
+							break;}
+						else if(blok_6 == ' '){
+							blok_6 = simbolo_player_2;
+							blok_6_2 = simbolo_player_2;
+							v_control = 0;
+							break;
+						
+						} 
+						 else{
+							srand(time(0));
+							variable_de_pr_2 = 1 + rand() % (9);
+						}
+					}
+				}
 
 				// si la posicion ingresada es un numero o letra diferente del 1 al 9
 				// entonces nos da error para que se ingrese un numero del 1 al 9
@@ -192,9 +419,9 @@ int main(){
 					std::cout<<"ERROR ... Deberia ser un numero del 1 al 9 y no estar ocupada por otro\n";
 					continue;
         
-				// Se valida si el numero que ingreso el jugador 2 es igual al numero de bloque, 
-				// entonces se coloca en el bloque elegido el simbolo del jugador 2.
-
+					// Se valida si el numero que ingreso el jugador 2 es igual al numero de bloque, 
+					// entonces se coloca en el bloque elegido el simbolo del jugador 2.
+					
 				} else if (variable_de_pr_2 == blok_1_2){		
 					blok_1 = simbolo_player_2;
 					blok_1_2 = simbolo_player_2;
@@ -241,12 +468,12 @@ int main(){
 					v_control = 0;
 					break;
 				} else {
-					std::cout << "ERROR ... Deberia ser un numero del 1 al 9 y no estar ocupada por otro\n";
+					if (modo == 'M'){
+						std::cout << "ERROR ... Deberia ser un numero del 1 al 9 y no estar ocupada por otro\n";
+					}
 				}
 			}
 		}
 	}	
-
-
 	return 0;
 }
